@@ -1,0 +1,190 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/npm/npm-registry-client#readme"
+
+    >npm-registry-client (v8.1.1)</a>
+</h1>
+<h4>Client for the npm registry</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-registry-client">module npm-registry-client</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-registry-client.npm-registry-client">
+            function <span class="apidocSignatureSpan"></span>npm-registry-client
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-registry-client.toString">
+            function <span class="apidocSignatureSpan">npm-registry-client.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-registry-client" id="apidoc.module.npm-registry-client">module npm-registry-client</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-registry-client.npm-registry-client" id="apidoc.element.npm-registry-client.npm-registry-client">
+        function <span class="apidocSignatureSpan"></span>npm-registry-client
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RegClient(config) {
+  this.config = Object.create(config || {})
+
+  this.config.proxy = this.config.proxy || {}
+  if (!this.config.proxy.https &#x26;&#x26; this.config.proxy.http) {
+    this.config.proxy.https = this.config.proxy.http
+  }
+
+  this.config.ssl = this.config.ssl || {}
+  if (this.config.ssl.strict === undefined) this.config.ssl.strict = true
+
+  this.config.retry = this.config.retry || {}
+  if (typeof this.config.retry.retries !== &#x27;number&#x27;) this.config.retry.retries = 2
+  if (typeof this.config.retry.factor !== &#x27;number&#x27;) this.config.retry.factor = 10
+  if (typeof this.config.retry.minTimeout !== &#x27;number&#x27;) this.config.retry.minTimeout = 10000
+  if (typeof this.config.retry.maxTimeout !== &#x27;number&#x27;) this.config.retry.maxTimeout = 60000
+  if (typeof this.config.maxSockets !== &#x27;number&#x27;) this.config.maxSockets = 50
+
+  this.config.userAgent = this.config.userAgent || &#x27;node/&#x27; + process.version
+  this.config.defaultTag = this.config.defaultTag || &#x27;latest&#x27;
+
+  this.log = this.config.log || npmlog
+  delete this.config.log
+
+  var client = this
+  client.access = require(&#x27;./lib/access&#x27;)
+  client.adduser = require(&#x27;./lib/adduser&#x27;)
+  client.attempt = require(&#x27;./lib/attempt&#x27;)
+  client.authify = require(&#x27;./lib/authify&#x27;)
+  client.deprecate = require(&#x27;./lib/deprecate&#x27;)
+  client.distTags = Object.create(client)
+  client.distTags.add = require(&#x27;./lib/dist-tags/add&#x27;)
+  client.distTags.fetch = require(&#x27;./lib/dist-tags/fetch&#x27;)
+  client.distTags.rm = require(&#x27;./lib/dist-tags/rm&#x27;)
+  client.distTags.set = require(&#x27;./lib/dist-tags/set&#x27;)
+  client.distTags.update = require(&#x27;./lib/dist-tags/update&#x27;)
+  client.fetch = require(&#x27;./lib/fetch&#x27;)
+  client.get = require(&#x27;./lib/get&#x27;)
+  client.initialize = require(&#x27;./lib/initialize&#x27;)
+  client.logout = require(&#x27;./lib/logout&#x27;)
+  client.ping = require(&#x27;./lib/ping&#x27;)
+  client.publish = require(&#x27;./lib/publish&#x27;)
+  client.request = require(&#x27;./lib/request&#x27;)
+  client.sendAnonymousCLIMetrics = require(&#x27;./lib/send-anonymous-CLI-metrics&#x27;)
+  client.star = require(&#x27;./lib/star&#x27;)
+  client.stars = require(&#x27;./lib/stars&#x27;)
+  client.tag = require(&#x27;./lib/tag&#x27;)
+  client.team = require(&#x27;./lib/team&#x27;)
+  client.unpublish = require(&#x27;./lib/unpublish&#x27;)
+  client.whoami = require(&#x27;./lib/whoami&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-registry-client.toString" id="apidoc.element.npm-registry-client.toString">
+        function <span class="apidocSignatureSpan">npm-registry-client.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var pkg = require(&#x27;../package.json&#x27;)
+
+module.exports = initialize
+
+function initialize (uri, method, accept, headers) {
+if (!this.config.sessionToken) {
+  this.config.sessionToken = crypto.randomBytes(8).<span class="apidocCodeKeywordSpan">toString</span>(&#x27;hex&#x27;)
+  this.log.verbose(&#x27;request id&#x27;, this.config.sessionToken)
+}
+if (this.config.isFromCI == null) {
+  this.config.isFromCI = Boolean(
+    process.env[&#x27;CI&#x27;] === &#x27;true&#x27; || process.env[&#x27;TDDIUM&#x27;] ||
+    process.env[&#x27;JENKINS_URL&#x27;] || process.env[&#x27;bamboo.buildKey&#x27;])
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
