@@ -1,6 +1,6 @@
 # npmdoc-npm-registry-client
 
-#### api documentation for  [npm-registry-client (v8.1.1)](https://github.com/npm/npm-registry-client#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-npm-registry-client.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-npm-registry-client) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-npm-registry-client.svg)](https://travis-ci.org/npmdoc/node-npmdoc-npm-registry-client)
+#### basic api documentation for  [npm-registry-client (v8.2.0)](https://github.com/npm/npm-registry-client#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-npm-registry-client.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-npm-registry-client) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-npm-registry-client.svg)](https://travis-ci.org/npmdoc/node-npmdoc-npm-registry-client)
 
 #### Client for the npm registry
 
@@ -52,14 +52,14 @@
     },
     "directories": {},
     "dist": {
-        "shasum": "831476455423ca0a265c6ffdb6100fcc042b36cf",
-        "tarball": "https://registry.npmjs.org/npm-registry-client/-/npm-registry-client-8.1.1.tgz"
+        "shasum": "39067d3c086db0ff8fa7cf444e9d4a785a9c07f6",
+        "tarball": "https://registry.npmjs.org/npm-registry-client/-/npm-registry-client-8.2.0.tgz"
     },
     "files": [
         "lib",
         "index.js"
     ],
-    "gitHead": "81afb2ce59d82c2a1179211d8c1bc789c9f6128c",
+    "gitHead": "53c15d996ceaa39e36453c499f32adaebbba97b9",
     "homepage": "https://github.com/npm/npm-registry-client#readme",
     "license": "ISC",
     "main": "index.js",
@@ -78,7 +78,8 @@
     "scripts": {
         "test": "standard && tap test/*.js"
     },
-    "version": "8.1.1"
+    "version": "8.2.0",
+    "bin": {}
 }
 ```
 
