@@ -51,7 +51,7 @@
 
         href="https://github.com/npm/npm-registry-client#readme"
 
-    >npm-registry-client (v8.1.1)</a>
+    >npm-registry-client (v8.2.0)</a>
 </h1>
 <h4>Client for the npm registry</h4>
 <div class="apidocSectionDiv"><a
@@ -66,15 +66,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.npm-registry-client.npm-registry-client">
             function <span class="apidocSignatureSpan"></span>npm-registry-client
             <span class="apidocSignatureSpan">(config)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.npm-registry-client.toString">
-            function <span class="apidocSignatureSpan">npm-registry-client.</span>toString
-            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -134,6 +125,7 @@
   client.get = require(&#x27;./lib/get&#x27;)
   client.initialize = require(&#x27;./lib/initialize&#x27;)
   client.logout = require(&#x27;./lib/logout&#x27;)
+  client.org = require(&#x27;./lib/org&#x27;)
   client.ping = require(&#x27;./lib/ping&#x27;)
   client.publish = require(&#x27;./lib/publish&#x27;)
   client.request = require(&#x27;./lib/request&#x27;)
@@ -146,37 +138,6 @@
   client.whoami = require(&#x27;./lib/whoami&#x27;)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.npm-registry-client.toString" id="apidoc.element.npm-registry-client.toString">
-        function <span class="apidocSignatureSpan">npm-registry-client.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-var pkg = require(&#x27;../package.json&#x27;)
-
-module.exports = initialize
-
-function initialize (uri, method, accept, headers) {
-if (!this.config.sessionToken) {
-  this.config.sessionToken = crypto.randomBytes(8).<span class="apidocCodeKeywordSpan">toString</span>(&#x27;hex&#x27;)
-  this.log.verbose(&#x27;request id&#x27;, this.config.sessionToken)
-}
-if (this.config.isFromCI == null) {
-  this.config.isFromCI = Boolean(
-    process.env[&#x27;CI&#x27;] === &#x27;true&#x27; || process.env[&#x27;TDDIUM&#x27;] ||
-    process.env[&#x27;JENKINS_URL&#x27;] || process.env[&#x27;bamboo.buildKey&#x27;])
-}
-...</pre></li>
     </ul>
 
 
